@@ -58,4 +58,10 @@ class BlueBirdIntegrationController extends Controller
     public function tes() {
       echo "HELLO WORLD";
     }
+
+    public function clickthrough() {
+      return "clickthrough";
+    }
+
+
 }
