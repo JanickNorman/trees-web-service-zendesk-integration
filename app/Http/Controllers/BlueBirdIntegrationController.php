@@ -64,5 +64,13 @@ class BlueBirdIntegrationController extends Controller
       return "clickthrough";
     }
 
+    public function channelback() {
+
+    }
+
+    public function pull() {
+      
+    }
+
 
 }
