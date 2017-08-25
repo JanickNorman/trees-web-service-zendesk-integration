@@ -8,26 +8,27 @@ class BlueBirdIntegrationController extends Controller
 {
     //
     public function admin(Request $request) {
-      $data['name'] = $request->get('name');
-      $data['instance_push_id'] = $request->get('instance_push_id');
-      $data['zendesk_access_token'] = $request->get('zendesk_access_token');
-
-      $data['metadata'] = $metadata = $request->get('metadata');
-      if (! $metadata) {
-        $metadata = json_decode($metadata);
-        $data['line_channel_name'] = $metadata['line_channel_name'];
-        $data['line_channel_id'] = $metadata['line_channel_id'];
-        $data['line_channel_secret'] = $metadata['line_channel_secret'];
-        $data['line_channel_access_token'] = $metadata['line_channel_access_token'];
-        $data['type'] = "update";
-      } else {
-        $data['type'] = "new";
-      }
-      $data['state'] = $request->get('state');
-      $data['return_url'] = $request->get('return_url');
-      $data['subdomain'] = $request->get('subdomain');
-      $data['locale'] = $request->get('subdomain');
-      $data['error'] = "";
+      echo "TES HALLO";
+      // $data['name'] = $request->get('name');
+      // $data['instance_push_id'] = $request->get('instance_push_id');
+      // $data['zendesk_access_token'] = $request->get('zendesk_access_token');
+      //
+      // $data['metadata'] = $metadata = $request->get('metadata');
+      // if (! $metadata) {
+      //   $metadata = json_decode($metadata);
+      //   $data['line_channel_name'] = $metadata['line_channel_name'];
+      //   $data['line_channel_id'] = $metadata['line_channel_id'];
+      //   $data['line_channel_secret'] = $metadata['line_channel_secret'];
+      //   $data['line_channel_access_token'] = $metadata['line_channel_access_token'];
+      //   $data['type'] = "update";
+      // } else {
+      //   $data['type'] = "new";
+      // }
+      // $data['state'] = $request->get('state');
+      // $data['return_url'] = $request->get('return_url');
+      // $data['subdomain'] = $request->get('subdomain');
+      // $data['locale'] = $request->get('subdomain');
+      // $data['error'] = "";
 
       return view('bluebirdintegration.admin', $data);
       // @name = integration_params[:name]
