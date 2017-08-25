@@ -15,6 +15,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('manifest.json', function() {
+  $json = json_decode(file_get_contents(public_path() . "/manifest.json"));
+  return response()->json($json);
+});
+
 Route::get('tes', function() {
   return "Hello World";
 });
