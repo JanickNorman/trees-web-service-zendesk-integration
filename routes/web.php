@@ -18,3 +18,12 @@ Route::get('/', function () {
 Route::get('tes', function() {
   return "Hello World";
 });
+
+Route::post('integration/admin', 'BlueBirdintegration@admin');
+Route::post('integration/pull', "BlueBirdintegration@pull");
+Route::post('integration/clickthrough', "BlueBirdintegration@clickthrough");
+Route::post('integration/channelback', "BlueBirdintegration@channelback");
+
+// post '/pull', to: 'line_integration#pull'
+// post '/channelback', to: 'line_integration#channelback'
+// get '/clickthrough', to: 'line_integration#clickthrough'
