@@ -1,0 +1,30 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: mikhailvink
+ * Date: 02/01/2017
+ * Time: 22:20
+ */
+
+$globalConfig=array();
+
+$globalConfig['Domain']='';
+$globalConfig['MailChimp_Auth']='';
+$globalConfig['MailChimp_List']='';
+$globalConfig['YouTubeAPIKey']='';
+$globalConfig['YouTubeOAuthClientID']='';
+$globalConfig['YouTubeOAuthClientSecret']='';
+$globalConfig['SEAPIKey']='';
+$globalConfig['SEClientID']='';
+$globalConfig['SEClientSecret']='';
+$globalConfig['TestStateSE']='';
+$globalConfig['TestMetaDataSE']='';
+$globalConfig['TestStateYT']='';
+$globalConfig['TestMetaDataYT']='';
+$globalConfig['TestStateDH']='';
+$globalConfig['TestMetaDataDH']='';
+$globalConfig['LogsDBHost']='';
+$globalConfig['LogsDBPort']='';
+$globalConfig['LogsDBUser']='';
+$globalConfig['LogsDBPassword']='=';
+$globalConfig['LogsDBName']='';
