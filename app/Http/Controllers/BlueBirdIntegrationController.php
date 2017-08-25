@@ -30,7 +30,7 @@ class BlueBirdIntegrationController extends Controller
       // $data['locale'] = $request->get('subdomain');
       // $data['error'] = "";
 
-      return view('bluebirdintegration.admin', $data);
+      // return view('bluebirdintegration.admin', $data);
       // @name = integration_params[:name]
       // @instance_push_id = integration_params[:instance_push_id]
       // @zendesk_access_token = integration_params[:zendesk_access_token]
