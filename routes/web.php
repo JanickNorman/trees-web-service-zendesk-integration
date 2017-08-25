@@ -22,7 +22,7 @@ Route::get('tes', function() {
 Route::post('integration/admin', 'BlueBirdintegration@admin');
 Route::post('integration/pull', "BlueBirdintegration@pull");
 Route::post('integration/clickthrough', "BlueBirdintegration@clickthrough");
-Route::post('integration/channelback', "BlueBirdintegration@channelback");
+Route::post('integration/channelback', "BlueBirdintegration@channelback");  
 
 // post '/pull', to: 'line_integration#pull'
 // post '/channelback', to: 'line_integration#channelback'
