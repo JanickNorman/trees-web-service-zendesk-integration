@@ -54,4 +54,8 @@ class BlueBirdIntegrationController extends Controller
       // format.html { render template: "line_integration/admin" }
       // end
     }
+
+    public function tes() {
+      echo "HELLO WORLD";
+    }
 }
