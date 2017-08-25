@@ -19,10 +19,10 @@ Route::get('tes', function() {
   return "Hello World";
 });
 
-Route::post('integration/admin', 'BlueBirdintegration@admin');
-Route::post('integration/pull', "BlueBirdintegration@pull");
-Route::post('integration/clickthrough', "BlueBirdintegration@clickthrough");
-Route::post('integration/channelback', "BlueBirdintegration@channelback");
+Route::post('integration/admin', 'BlueBirdIntegrationController@admin');
+Route::post('integration/pull', "BlueBirdIntegrationController@pull");
+Route::get('integration/clickthrough', "BlueBirdIntegrationController@clickthrough");
+Route::post('integration/channelback', "BlueBirdIntegrationController@channelback");
 
 // post '/pull', to: 'line_integration#pull'
 // post '/channelback', to: 'line_integration#channelback'
