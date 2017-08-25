@@ -23,10 +23,10 @@ Route::get('manifest.json', function() {
       "version" => "v1.0.0",
       "push_client_id" => "bb_integ",
         "urls" => [
-        "admin_ui" => "https://nameless-badlands-52217.herokuapp.com/integration/line/admin",
-        "pull_url" => "https://nameless-badlands-52217.herokuapp.com/integration/line/pull",
-        "channelback_url" => "https://nameless-badlands-52217.herokuapp.com/integration/line/channelback",
-        "clickthrough_url" => "https://nameless-badlands-52217.herokuapp.com/integration/line/clickthrough"
+        "admin_ui" => "https://nameless-badlands-52217.herokuapp.com/integration/admin",
+        "pull_url" => "https://nameless-badlands-52217.herokuapp.com/integration/pull",
+        "channelback_url" => "https://nameless-badlands-52217.herokuapp.com/integration/channelback",
+        "clickthrough_url" => "https://nameless-badlands-52217.herokuapp.com/integration/clickthrough"
       ]
   ];
 
