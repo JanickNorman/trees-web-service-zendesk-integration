@@ -37,6 +37,7 @@ class BlueBirdIntegrationController extends Controller
       $data['trees_web_service'] = "https://trees-web-service.herokuapp.com";
 
 
+
       return view('bluebirdintegration.admin', $data);
       // @name = integration_params[:name]
       // @instance_push_id = integration_params[:instance_push_id]
@@ -55,8 +56,9 @@ class BlueBirdIntegrationController extends Controller
 
     }
 
-    public function pull() {
-
+    public function pull(Request $request) {
+      \Log::debug("the zendesk is pulling");
+      \Log::debug($request->all());
     }
 
     public function send_reply_url() {
