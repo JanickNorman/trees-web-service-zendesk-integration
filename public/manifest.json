@@ -1,6 +1,6 @@
 {
   "name": "Blue Bird Channel",
-  "id": "zendesk-internal-bluebird-integration",
+  "id": "bluebird-integration",
   "author":  "Janick Norman",
   "version": "v1.0.0",
   "push_client_id": "bb_integ",
