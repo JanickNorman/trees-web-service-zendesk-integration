@@ -16,10 +16,7 @@ class BlueBirdIntegrationController extends Controller
       $data['metadata'] = $metadata = $request->get('metadata');
       if (! $metadata) {
         $metadata = json_decode($metadata);
-        $data['line_channel_name'] = $metadata['line_channel_name'];
-        $data['line_channel_id'] = $metadata['line_channel_id'];
-        $data['line_channel_secret'] = $metadata['line_channel_secret'];
-        $data['line_channel_access_token'] = $metadata['line_channel_access_token'];
+
         $data['type'] = "update";
       } else {
         $data['type'] = "new";
@@ -29,12 +26,13 @@ class BlueBirdIntegrationController extends Controller
       $data['subdomain'] = $request->get('subdomain');
       $data['locale'] = $request->get('subdomain');
       $data['error'] = "";
+      $data['metadata'] = [];
 
       //sementara aja
-      $data['bb_portal'] = "https://BB_Sementara.portal.com";
-      $data['bb_secret'] = "inirahasia";
+      $data['metadata']['bb_portal'] = "https://BB_Sementara.portal.com";
+      $data['metadata']['bb_secret'] = "inirahasia";
 
-      $data['trees_web_service'] = "https://trees-web-service.herokuapp.com";
+      $data['metadata']['trees_web_service'] = "https://trees-web-service.herokuapp.com";
 
 
 
@@ -57,8 +55,7 @@ class BlueBirdIntegrationController extends Controller
     }
 
     public function pull(Request $request) {
-      \Log::debug("zendesk is pulling");
-      \Log::debug($request->all());
+      \Log::info("zendesk is pulling");
 
       // $response = [
       //   "external_resources" => [
