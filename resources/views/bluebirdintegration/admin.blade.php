@@ -12,11 +12,11 @@
         <form id="account-form" method="post" action="{{$return_url}}">
           <div class="form-group">
             <label for="name">Name:</label>
-            <input class="form-control" type="text" name="name" value="{{$line_channel_name}}">
+            <input class="form-control" type="text" name="name" value="">
           </div>
           <div class="form-group">
             <label for="channel_id">Channel ID:</label>
-            <input class="form-control" type="text" name="line_channel_id" value="{{$line_channel_id}}">
+            <input class="form-control" type="text" name="line_channel_id" value="">
           </div>
           {{-- <input type="hidden" name="subdomain" value="{{$line_channel_id}}" />
           <input type="hidden" name="locale" value="{{$locale}}" />
