@@ -9,7 +9,7 @@ class BlueBirdIntegrationController extends Controller
     //
     public function admin(Request $request) {
       echo "TES HALLO";
-      dd("HAhAhAhA");
+      dd($request->all());
       $data['name'] = $request->get('name');
       $data['instance_push_id'] = $request->get('instance_push_id');
       $data['zendesk_access_token'] = $request->get('zendesk_access_token');
