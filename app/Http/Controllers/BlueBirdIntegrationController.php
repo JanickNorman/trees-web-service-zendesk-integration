@@ -57,9 +57,28 @@ class BlueBirdIntegrationController extends Controller
     public function pull(Request $request) {
       \Log::info("zendesk is pulling");
       \Log::info($request->all());
+
+      $id = uniqid();
+      //http://4.bp.blogspot.com/-jFtfRX8qKm4/UoqfGBFNWYI/AAAAAAAAAYg/PuKga0sNFMk/s1600/blue-bird-taxi-reservation.png
+      $external_resources = [
+        [
+          "id" => "tes_"+$id,
+          "message" => "Please help. My printer is on fire.",
+          "html_message" => "Please help. <b>My printer is on fire.</b>",
+          "created_at" =>  "2015-09-08T22:48:09Z",
+          "author" => [
+            'external_id' => "andi_123",
+            "name" => "Andi",
+            "image_url" => "https://scontent.cdninstagram.com/hphotos-xap1/t51.2885-19/s150x150/12424615_209564492716268_42714239_a.jpg",
+            "locale" => "en"
+          ],
+          "allow_channelback" => false,
+        ]
+      ];
+
       $response = [
-        "external_resources" => [],
-        "state" => "",
+        "external_resources" => $external_resources,
+        "state" => json_encode(["last_id"]),
         "metadata_needs_update" => false,
       ];
       return response()->json($response);
