@@ -62,7 +62,7 @@ class BlueBirdIntegrationController extends Controller
       //http://4.bp.blogspot.com/-jFtfRX8qKm4/UoqfGBFNWYI/AAAAAAAAAYg/PuKga0sNFMk/s1600/blue-bird-taxi-reservation.png
       $external_resources = [
         [
-          "id" => "tes_".$id,
+          "external_id" => "tes_".$id,
           "message" => "Please help. My printer is on fire.",
           "html_message" => "Please help. <b>My printer is on fire.</b>",
           "created_at" =>  "2015-09-08T22:48:09Z",
