@@ -58,12 +58,11 @@ class BlueBirdIntegrationController extends Controller
       \Log::info("zendesk is pulling");
       \Log::info($request->all());
 
-      $state = json_decode($request->get('state'));
       $id = uniqid();
       //http://4.bp.blogspot.com/-jFtfRX8qKm4/UoqfGBFNWYI/AAAAAAAAAYg/PuKga0sNFMk/s1600/blue-bird-taxi-reservation.png
       $external_resources = [
         [
-          "external_id" => $state['last_id'],
+          "external_id" => "tes_".$id,
           "message" => "Please help. My printer is on fire.",
           "html_message" => "Please help. <b>My printer is on fire.</b>",
           "created_at" =>  "2015-09-08T22:48:09Z",
@@ -74,6 +73,10 @@ class BlueBirdIntegrationController extends Controller
             "locale" => "en"
           ],
           "allow_channelback" => false,
+          "fields" => [
+            ["id" => "tags", "value" => ["arriba", "cartel"]],
+            ["id" => "status", "value" => "pending"]
+          ]
         ]
       ];
 
