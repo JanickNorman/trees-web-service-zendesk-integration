@@ -30,30 +30,17 @@ class BlueBirdIntegrationController extends Controller
       $data['locale'] = $request->get('subdomain');
       $data['error'] = "";
 
+      //sementara aja
+      $data['bb_portal'] = "https://BB_Sementara.portal.com";
+      $data['bb_secret'] = "inirahasia";
+
+      $data['trees_web_service'] = "https://trees-web-service.herokuapp.com";
+
+
       return view('bluebirdintegration.admin', $data);
       // @name = integration_params[:name]
       // @instance_push_id = integration_params[:instance_push_id]
-      // @zendesk_access_token = integration_params[:zendesk_access_token]
-      //
-      // @metadata = integration_params[:metadata]
-      // if !integration_params[:metadata].empty?
-      // @metadata = JSON.parse(integration_params[:metadata])
-      // @line_channel_id = @metadata['line_channel_id']
-      // @line_channel_secret = @metadata['line_channel_secret']
-      // @line_channel_access_token = @metadata['line_channel_access_token']
-      // @type = "update"
-      // else
-      // @type = "new"
-      // end
-      // @state = integration_params[:state]
-      // @return_url = integration_params[:return_url]
-      // @subdomain = integration_params[:subdomain]
-      // @locale = integration_params[:locale]
-      // @error = ""
-      //
-      // respond_to do |format|
-      // format.html { render template: "line_integration/admin" }
-      // end
+
     }
 
     public function tes() {
@@ -69,6 +56,10 @@ class BlueBirdIntegrationController extends Controller
     }
 
     public function pull() {
+
+    }
+
+    public function send_reply_url() {
 
     }
 
