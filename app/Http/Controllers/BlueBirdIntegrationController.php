@@ -78,7 +78,7 @@ class BlueBirdIntegrationController extends Controller
 
       $response = [
         "external_resources" => $external_resources,
-        "state" => json_encode(["last_id"]),
+        "state" => json_encode(["last_id" => "tes_".$id]),
         "metadata_needs_update" => false,
       ];
       return response()->json($response);
