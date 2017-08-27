@@ -15,24 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('manifest.json', function() {
-  $json = [
-      "name" => "Blue Bird Channel tes",
-      "id" => "zendesk-internal-bluebird-integration",
-      "author" =>  "Janick Norman",
-      "version" => "v1.0.0",
-      "push_client_id" => "bb_integ",
-        "urls" => [
-        "admin_ui" => "https://arcane-dusk-31557.herokuapp.com/integration/line/admin",
-        "pull_url" => "https://arcane-dusk-31557.herokuapp.com/integration/line/pull",
-        "channelback_url" => "https://arcane-dusk-31557.herokuapp.com/integration/line/channelback",
-        "clickthrough_url" => "https://arcane-dusk-31557.herokuapp.com/integration/line/clickthrough"
-      ]
-  ];
-
-  return response()->json($json);
-});
-
 Route::get('tes', function() {
   return "Hello World";
 });
