@@ -59,6 +59,14 @@ class BlueBirdIntegrationController extends Controller
     public function pull(Request $request) {
       \Log::debug("the zendesk is pulling");
       \Log::debug($request->all());
+
+      // $response = [
+      //   "external_resources" => [
+      //     "external_id" => "",
+      //     ""
+      //
+      //   ]
+      // ]
     }
 
     public function send_reply_url() {
