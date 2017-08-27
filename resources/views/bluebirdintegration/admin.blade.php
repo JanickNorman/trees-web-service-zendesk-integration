@@ -9,7 +9,7 @@
     <div class="panel panel-default">
       <div class="panel-heading">Line Channel Account Settings</div>
       <div class="panel-body">
-        <form id="account-form" method="post" action="/integration/line/send_reply_url">
+        <form id="account-form" method="post" action="{{$return_url}}">
           <div class="form-group">
             <label for="name">Name:</label>
             <input class="form-control" type="text" name="name" value="{{$line_channel_name}}">
