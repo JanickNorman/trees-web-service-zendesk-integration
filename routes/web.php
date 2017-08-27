@@ -19,7 +19,7 @@ Route::get('tes', function() {
   return "Hello World";
 });
 
-Route::get('integration/admin', 'BlueBirdIntegrationController@admin');
+Route::post('integration/admin', 'BlueBirdIntegrationController@admin');
 Route::post('integration/pull', "BlueBirdIntegrationController@pull");
 Route::get('integration/clickthrough', "BlueBirdIntegrationController@clickthrough");
 Route::post('integration/channelback', "BlueBirdIntegrationController@channelback");
