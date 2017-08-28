@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use GuzzleHttp\Client;
 
 class BlueBirdIntegrationController extends Controller
 {
@@ -42,10 +43,6 @@ class BlueBirdIntegrationController extends Controller
 
     }
 
-    public function tes() {
-      echo "HELLO WORLD";
-    }
-
     public function clickthrough() {
       return "clickthrough";
     }
@@ -60,25 +57,26 @@ class BlueBirdIntegrationController extends Controller
 
       $id = uniqid();
       //http://4.bp.blogspot.com/-jFtfRX8qKm4/UoqfGBFNWYI/AAAAAAAAAYg/PuKga0sNFMk/s1600/blue-bird-taxi-reservation.png
-      $external_resources = [
-        [
-          "external_id" => "tes_".$id,
-          "message" => "Please help. My printer is on fire.",
-          "html_message" => "Please help. <b>My printer is on fire.</b>",
-          "created_at" =>  "2015-09-08T22:48:09Z",
-          "author" => [
-            'external_id' => "andi_123",
-            "name" => "Andi",
-            "image_url" => "https://scontent.cdninstagram.com/hphotos-xap1/t51.2885-19/s150x150/12424615_209564492716268_42714239_a.jpg",
-            "locale" => "en"
-          ],
-          "allow_channelback" => false,
-          "fields" => [
-            ["id" => "tags", "value" => ["arriba", "cartel"]],
-            ["id" => "status", "value" => "pending"]
-          ]
-        ]
-      ];
+      // $external_resources = [
+      //   [
+      //     "external_id" => "tes_".$id,
+      //     "message" => "Please help. My printer is on fire.",
+      //     "html_message" => "Please help. <b>My printer is on fire.</b>",
+      //     "created_at" =>  "2015-09-08T22:48:09Z",
+      //     "author" => [
+      //       'external_id' => "andi_123",
+      //       "name" => "Andi",
+      //       "image_url" => "https://scontent.cdninstagram.com/hphotos-xap1/t51.2885-19/s150x150/12424615_209564492716268_42714239_a.jpg",
+      //       "locale" => "en"
+      //     ],
+      //     "allow_channelback" => false,
+      //     "fields" => [
+      //       ["id" => "tags", "value" => ["arriba", "cartel"]],
+      //       ["id" => "status", "value" => "pending"]
+      //     ]
+      //   ]
+      // ];
+      $external_resources = [];
 
       $response = [
         "external_resources" => $external_resources,
@@ -91,6 +89,13 @@ class BlueBirdIntegrationController extends Controller
 
     public function send_reply_url() {
 
+    }
+
+    public function tes(Client $client) {
+      $res = $client->get('https://trees-web-service.herokuapp.com/api/v1/lists');
+      $res = (string) $res->getBody();
+
+      return $res;
     }
 
 

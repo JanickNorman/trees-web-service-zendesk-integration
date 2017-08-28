@@ -15,14 +15,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('tes', function() {
-  return "Hello World";
-});
-
 Route::post('integration/admin', 'BlueBirdIntegrationController@admin');
 Route::post('integration/pull', "BlueBirdIntegrationController@pull");
 Route::get('integration/clickthrough', "BlueBirdIntegrationController@clickthrough");
 Route::post('integration/channelback', "BlueBirdIntegrationController@channelback");
+Route::get('tes', "BlueBirdIntegrationController@tes");
 
 // post '/pull', to: 'line_integration#pull'
 // post '/channelback', to: 'line_integration#channelback'
