@@ -55,15 +55,17 @@ class BlueBirdIntegrationController extends Controller
       \Log::info("zendesk is pulling");
       \Log::info($request->all());
 
-      if (!$count) {
-        $count = 1;
-      }
+      // if (!$count) {
+      //   $count = 1;
+      // }
 
       $res = $client->put('https://trees-web-service.herokuapp.com/api/v1/absences/batch',[
-        'body' => [
-          'batch_id' => $count
+        'json' => [
+          'batch_id' => 1
         ]
-      ]);
+      ]);      
+
+
 
       $external_resources = [];
       if ($res->getStatusCode() == 200) {
@@ -86,7 +88,7 @@ class BlueBirdIntegrationController extends Controller
           // $external_resources['fields'] = 
 
           $external_resources['fields'] = [
-            ['id' => 'status' => 'value' => 'pending']
+            ['id' => 'status', 'value' => 'pending']
           ];
           // ["id" => "status", "value" => "pending"]
 
@@ -131,13 +133,15 @@ class BlueBirdIntegrationController extends Controller
 
     public function tes(Client $client) {
       $res = $client->put('https://trees-web-service.herokuapp.com/api/v1/absences/batch',[
-        'body' => [
-          'batch_id' => $count
+        'json' => [
+          'batch_id' => 1
         ]
-      ]);      if ($res->getStatusCode() == 200) {
+        ]);      
+
+      if ($res->getStatusCode() == 200) {
         $json = (string) $res->getBody();
-        $lists = json_decode($json, true);
-        return $lists['projects'];
+        $data = json_decode($json, true);
+        return $data['updated_absences'];
       }
 
     }
