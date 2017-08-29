@@ -63,7 +63,7 @@ class BlueBirdIntegrationController extends Controller
       }else{
         $count = 1;
       }
-      \Log::info("hahahaha")
+      \Log::info("hahahaha");
       // $requestmock = [];
       // $requestmock['metadata'] = json_encode([
       //   'count' => 1
