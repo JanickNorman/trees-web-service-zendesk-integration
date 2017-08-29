@@ -55,10 +55,10 @@ class BlueBirdIntegrationController extends Controller
       \Log::info("zendesk is pulling");
       \Log::info($request->all());
 
-      $metadata = $request->get('metadata');
-      $metadata = json_decode($metadata, true);
-      if (isset($metadata['count'])) {
-        $count = $metadata['count'];
+      $state = $request->get('state');
+      $state = json_decode($state, true);
+      if (isset($state['count'])) {
+        $count = $state['count'];
       }else{
         $count = 1;
       }
@@ -70,7 +70,7 @@ class BlueBirdIntegrationController extends Controller
       // $metadata = json_decode($requestmock['metadata'], true);
       // dd(isset($metadata['counts']));
       // $count = 0;
-      \Log::info(json_decode($request->get('metadata')));
+      \Log::info(json_decode($request->get('state')));
 
       $res = $client->put('https://trees-web-service.herokuapp.com/api/v1/absences/batch',[
         'json' => [
