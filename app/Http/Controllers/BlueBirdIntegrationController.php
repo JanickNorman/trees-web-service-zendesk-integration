@@ -81,6 +81,8 @@ class BlueBirdIntegrationController extends Controller
 
 
       $external_resources = [];
+      \Log::info("kena");
+      \Log::info($res->getStatusCode());
       if ($res->getStatusCode() == 200) {
         $json = (string) $res->getBody();
         $data = json_decode($json, true);
