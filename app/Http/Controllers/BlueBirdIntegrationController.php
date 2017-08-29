@@ -58,7 +58,7 @@ class BlueBirdIntegrationController extends Controller
       if (!$count) {
         $count = 1;
       }
-      \Log::inf(json_decode($request->get('metadata')));
+      \Log::info(json_decode($request->get('metadata')));
 
       $res = $client->put('https://trees-web-service.herokuapp.com/api/v1/absences/batch',[
         'json' => [
