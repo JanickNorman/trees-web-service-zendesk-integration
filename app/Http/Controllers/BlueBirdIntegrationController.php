@@ -139,7 +139,6 @@ class BlueBirdIntegrationController extends Controller
         "state" => json_encode(["count" => $count]),
         "metadata_needs_update" => false,
       ];
-      dd($response);
       return response()->json($response);
 
     }
