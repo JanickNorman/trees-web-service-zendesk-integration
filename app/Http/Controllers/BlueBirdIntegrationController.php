@@ -85,6 +85,7 @@ class BlueBirdIntegrationController extends Controller
         $json = (string) $res->getBody();
         $data = json_decode($json, true);
         $absences = $data['updated_absences'];
+        dd($absences);
 
         $external_resource = [];
         foreach ($absences as $absence) {
@@ -132,7 +133,6 @@ class BlueBirdIntegrationController extends Controller
       //     ]
       //   ]
       // ];
-      dd($external_resources);
 
       $response = [
         "external_resources" => $external_resources,
