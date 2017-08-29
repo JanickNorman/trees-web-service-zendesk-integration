@@ -54,7 +54,6 @@ class BlueBirdIntegrationController extends Controller
     public function pull(Request $request, Client $client) {
       \Log::info("zendesk is pulling");
       \Log::info($request->all());
-      dd($request->all());
       //tes
       $state = $request->get('state');
       $state = json_decode($state, true);
