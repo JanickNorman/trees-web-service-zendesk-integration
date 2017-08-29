@@ -85,7 +85,7 @@ class BlueBirdIntegrationController extends Controller
         foreach ($absences as $key => $absence) {
           $external_resource['external_id'] = (string) $absence['abs_trx_id'];
           $external_resource['created_at'] = "2015-09-08T22:48:09Z";
-          $external_resource['parent_id'] = 2343;
+          $external_resource['parent_id'] = (string) 2343;
           // $external_resource['thread_id'] = $absence['created_by'];
           $external_resource['message'] = "Absen nih untuk project number: ".(string) $absence['project_number'];
 
