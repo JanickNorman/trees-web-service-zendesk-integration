@@ -65,13 +65,6 @@ class BlueBirdIntegrationController extends Controller
         $count = 1;
       }
       \Log::info("hahahaha");
-      // $requestmock = [];
-      // $requestmock['metadata'] = json_encode([
-      //   'count' => 1
-      //   ]);
-      // $metadata = json_decode($requestmock['metadata'], true);
-      // dd(isset($metadata['counts']));
-      // $count = 0;
 
       $res = $client->put('https://trees-web-service.herokuapp.com/api/v1/absences/batch',[
         'json' => [
@@ -90,7 +83,7 @@ class BlueBirdIntegrationController extends Controller
 
         $external_resource = [];
         foreach ($absences as $key => $absence) {
-          $external_resource['external_id'] = $absence['abs_trx_id'];
+          $external_resource['external_id'] = (string) $absence['abs_trx_id'];
           $external_resource['created_at'] = "2015-09-08T22:48:09Z";
           // $external_resource['thread_id'] = $absence['created_by'];
           $external_resource['message'] = "Absen nih untuk project number: ".(string) $absence['project_number'];
