@@ -96,7 +96,7 @@ class BlueBirdIntegrationController extends Controller
           $author = [];
           $author['external_id'] = $absence["employee_number"];
           $author['name'] = $absence['created_by'];
-          $author['image_url'] = "https://scontent.cdninstagram.com/hphotos-xap1/t51.2885-19/s150x150/12424615_209564492716268_42714239_a.jpg";
+          $author['image_url'] = "https://i.pinimg.com/236x/01/89/cb/0189cb0a165cb819087f286fe3774af0--people.jpg";
           $author['locale'] = "en";
           $external_resource['author'] = $author;
           $external_resource['allow_channelback'] = false;
