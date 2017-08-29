@@ -98,9 +98,9 @@ class BlueBirdIntegrationController extends Controller
           $external_resource['allow_channelback'] = false;
           // $external_resource['fields'] = 
 
-          $external_resource['fields'] = [
-            ['id' => 'status', 'value' => 'pending']
-          ];
+          // $external_resource['fields'] = [
+          //   ['id' => 'status', 'value' => 'pending']
+          // ];
           array_push($external_resources, $external_resource);
           // ["id" => "status", "value" => "pending"]
         }
