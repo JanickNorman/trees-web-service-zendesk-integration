@@ -55,9 +55,10 @@ class BlueBirdIntegrationController extends Controller
       \Log::info("zendesk is pulling");
       \Log::info($request->all());
 
-      // if (!$count) {
-      //   $count = 1;
-      // }
+      if (!$count) {
+        $count = 1;
+      }
+      \Log::inf(json_decode($request->get('metadata')));
 
       $res = $client->put('https://trees-web-service.herokuapp.com/api/v1/absences/batch',[
         'json' => [
