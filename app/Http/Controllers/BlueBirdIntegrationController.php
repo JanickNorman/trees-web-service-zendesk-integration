@@ -59,7 +59,8 @@ class BlueBirdIntegrationController extends Controller
       $state = $request->get('state');
       $state = json_decode($state, true);
       if (isset($state['count'])) {
-        $count = $state['count'];
+        $count = (int) $state['count'];
+        $count++;
       }else{
         $count = 1;
       }
