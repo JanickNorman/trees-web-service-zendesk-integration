@@ -109,7 +109,6 @@ class BlueBirdIntegrationController extends Controller
         }
       }
       \Log::info('ini externalnya');
-      \Log::info($external_resource);
 
 
       // $id = uniqid();
