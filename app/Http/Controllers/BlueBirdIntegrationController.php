@@ -86,21 +86,22 @@ class BlueBirdIntegrationController extends Controller
         $data = json_decode($json, true);
         $absences = $data['updated_absences'];
 
+        $external_resource = [];
         foreach ($absences as $absence) {
-          $external_resources['external_id'] = $absence['abs_trx_id'];
-          $external_resources['created_at'] = "2015-09-08T22:48:09Z";
-          $external_resources['thread_id'] = $absence['created_by'];
+          $external_resource['external_id'] = $absence['abs_trx_id'];
+          $external_resource['created_at'] = "2015-09-08T22:48:09Z";
+          $external_resource['thread_id'] = $absence['created_by'];
 
           $author = [];
           $author['external_id'] = $absence["employee_number"];
           $author['name'] = $absence['created_by'];
           $author['image_url'] = "https://scontent.cdninstagram.com/hphotos-xap1/t51.2885-19/s150x150/12424615_209564492716268_42714239_a.jpg";
           $author['locale'] = "en";
-          $external_resources['author'] = $author;
-          $external_resources['allow_channelback'] = false;
-          // $external_resources['fields'] = 
+          $external_resource['author'] = $author;
+          $external_resource['allow_channelback'] = false;
+          // $external_resource['fields'] = 
 
-          $external_resources['fields'] = [
+          $external_resource['fields'] = [
             ['id' => 'status', 'value' => 'pending']
           ];
           // ["id" => "status", "value" => "pending"]
@@ -108,7 +109,7 @@ class BlueBirdIntegrationController extends Controller
         }
       }
       \Log::info('ini externalnya');
-      \Log::info($external_resources);
+      \Log::info($external_resource);
 
 
       // $id = uniqid();
