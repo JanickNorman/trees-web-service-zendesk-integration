@@ -63,7 +63,7 @@ class BlueBirdIntegrationController extends Controller
       }else{
         $count = 1;
       }
-
+      \Log::info("hahahaha")
       // $requestmock = [];
       // $requestmock['metadata'] = json_encode([
       //   'count' => 1
@@ -71,7 +71,6 @@ class BlueBirdIntegrationController extends Controller
       // $metadata = json_decode($requestmock['metadata'], true);
       // dd(isset($metadata['counts']));
       // $count = 0;
-      \Log::info(json_decode($request->get('state')));
 
       $res = $client->put('https://trees-web-service.herokuapp.com/api/v1/absences/batch',[
         'json' => [
