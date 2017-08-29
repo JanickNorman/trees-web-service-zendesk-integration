@@ -55,7 +55,46 @@ class BlueBirdIntegrationController extends Controller
       \Log::info("zendesk is pulling");
       \Log::info($request->all());
 
-      $id = uniqid();
+      if (!$count) {
+        $count = 1;
+      }
+
+      $res = $client->put('https://trees-web-service.herokuapp.com/api/v1/absences/batch',[
+        'body' => [
+          'batch_id' => $count
+        ]
+      ]);
+
+      $external_resources = [];
+      if ($res->getStatusCode() == 200) {
+        $json = (string) $res->getBody();
+        $data = json_decode($json, true);
+        $absences = $data['updated_absences'];
+
+        foreach ($absences as $absence) {
+          $external_resources['external_id'] = $absence['abs_trx_id'];
+          $external_resources['created_at'] = "2015-09-08T22:48:09Z";
+          $external_resources['thread_id'] = $absence['created_by'];
+
+          $author = [];
+          $author['external_id'] = $absence["employee_number"];
+          $author['name'] = $absence['created_by'];
+          $author['image_url'] = "https://scontent.cdninstagram.com/hphotos-xap1/t51.2885-19/s150x150/12424615_209564492716268_42714239_a.jpg";
+          $author['locale'] = "en";
+          $external_resources['author'] = $author;
+          $external_resources['allow_channelback'] = false;
+          // $external_resources['fields'] = 
+
+          $external_resources['fields'] = [
+            ['id' => 'status' => 'value' => 'pending']
+          ];
+          // ["id" => "status", "value" => "pending"]
+
+        }
+      }
+
+
+      // $id = uniqid();
       //http://4.bp.blogspot.com/-jFtfRX8qKm4/UoqfGBFNWYI/AAAAAAAAAYg/PuKga0sNFMk/s1600/blue-bird-taxi-reservation.png
       // $external_resources = [
       //   [
@@ -76,11 +115,10 @@ class BlueBirdIntegrationController extends Controller
       //     ]
       //   ]
       // ];
-      $external_resources = [];
 
       $response = [
         "external_resources" => $external_resources,
-        "state" => json_encode(["last_id" => "tes_".$id]),
+        "state" => json_encode(["count" => $count]),
         "metadata_needs_update" => false,
       ];
       return response()->json($response);
@@ -92,10 +130,16 @@ class BlueBirdIntegrationController extends Controller
     }
 
     public function tes(Client $client) {
-      $res = $client->get('https://trees-web-service.herokuapp.com/api/v1/lists');
-      $res = (string) $res->getBody();
+      $res = $client->put('https://trees-web-service.herokuapp.com/api/v1/absences/batch',[
+        'body' => [
+          'batch_id' => $count
+        ]
+      ]);      if ($res->getStatusCode() == 200) {
+        $json = (string) $res->getBody();
+        $lists = json_decode($json, true);
+        return $lists['projects'];
+      }
 
-      return $res;
     }
 
 
