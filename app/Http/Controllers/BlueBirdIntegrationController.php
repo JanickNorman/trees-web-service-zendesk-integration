@@ -132,6 +132,7 @@ class BlueBirdIntegrationController extends Controller
       //     ]
       //   ]
       // ];
+      dd($external_resources);
 
       $response = [
         "external_resources" => $external_resources,
