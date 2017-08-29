@@ -78,14 +78,13 @@ class BlueBirdIntegrationController extends Controller
         ]
       ]);      
 
-
+      dd($res->getStatusCode());
 
       $external_resources = [];
       if ($res->getStatusCode() == 200) {
         $json = (string) $res->getBody();
         $data = json_decode($json, true);
         $absences = $data['updated_absences'];
-        dd($absences);
 
         $external_resource = [];
         foreach ($absences as $absence) {
