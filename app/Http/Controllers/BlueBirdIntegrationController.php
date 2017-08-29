@@ -57,6 +57,7 @@ class BlueBirdIntegrationController extends Controller
       //tes
       $state = $request->get('state');
       $state = json_decode($state, true);
+
       if (isset($state['count'])) {
         $count = (int) $state['count'];
         $count++;
@@ -89,8 +90,8 @@ class BlueBirdIntegrationController extends Controller
         foreach ($absences as $key => $absence) {
           $external_resource['external_id'] = $absence['abs_trx_id'];
           $external_resource['created_at'] = "2015-09-08T22:48:09Z";
-          $external_resource['thread_id'] = $absence['created_by'];
-          $external_resource['message'] = "Absen nih";
+          // $external_resource['thread_id'] = $absence['created_by'];
+          $external_resource['message'] = "Absen nih untuk project number: ".(string) $absence['project_number'];
 
           $author = [];
           $author['external_id'] = $absence["employee_number"];
@@ -104,7 +105,7 @@ class BlueBirdIntegrationController extends Controller
           $external_resource['fields'] = [
             ['id' => 'status', 'value' => 'pending']
           ];
-          $external_resources[$key] = $external_resource;
+          array_push($external_resources, $external_resource);
           // ["id" => "status", "value" => "pending"]
         }
 
@@ -138,6 +139,7 @@ class BlueBirdIntegrationController extends Controller
         "state" => json_encode(["count" => $count]),
         "metadata_needs_update" => false,
       ];
+      dd($response);
       return response()->json($response);
 
     }
