@@ -78,7 +78,6 @@ class BlueBirdIntegrationController extends Controller
         ]
       ]);      
 
-      dd($res->getStatusCode());
 
       $external_resources = [];
       if ($res->getStatusCode() == 200) {
@@ -87,10 +86,11 @@ class BlueBirdIntegrationController extends Controller
         $absences = $data['updated_absences'];
 
         $external_resource = [];
-        foreach ($absences as $absence) {
+        foreach ($absences as $key => $absence) {
           $external_resource['external_id'] = $absence['abs_trx_id'];
           $external_resource['created_at'] = "2015-09-08T22:48:09Z";
           $external_resource['thread_id'] = $absence['created_by'];
+          $external_resource['message'] = "Absen nih";
 
           $author = [];
           $author['external_id'] = $absence["employee_number"];
@@ -104,12 +104,12 @@ class BlueBirdIntegrationController extends Controller
           $external_resource['fields'] = [
             ['id' => 'status', 'value' => 'pending']
           ];
+          $external_resources[$key] = $external_resource;
           // ["id" => "status", "value" => "pending"]
-
         }
+
       }
       \Log::info('ini externalnya');
-
 
       // $id = uniqid();
       //http://4.bp.blogspot.com/-jFtfRX8qKm4/UoqfGBFNWYI/AAAAAAAAAYg/PuKga0sNFMk/s1600/blue-bird-taxi-reservation.png
